@@ -47,3 +47,10 @@ python scripts/test_cointegration.py
 python scripts/analyze_cointegration_sensitivity.py
 python scripts/build_baseline_pairs.py
 python scripts/run_spread_event_study.py
+
+```
+
+> **Checkpoint note:** The committed summary tables were produced during
+> iterative development. A final clean pipeline run will be performed after
+> the baseline backtest is frozen; exact intermediate counts may differ when
+> regenerated with the latest same-issuer filtering logic.
