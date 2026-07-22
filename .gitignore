@@ -1,0 +1,114 @@
+# ============================================================
+# PYTHON
+# ============================================================
+
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+
+# ============================================================
+# VIRTUAL ENVIRONMENTS
+# ============================================================
+
+.venv/
+venv/
+env/
+ENV/
+
+
+# ============================================================
+# ENVIRONMENT VARIABLES AND SECRETS
+# ============================================================
+
+.env
+.env.*
+*.key
+*.pem
+secrets.json
+credentials.json
+
+
+# ============================================================
+# JUPYTER
+# ============================================================
+
+.ipynb_checkpoints/
+
+
+# ============================================================
+# IDE AND OPERATING SYSTEM
+# ============================================================
+
+.vscode/
+.idea/
+
+.DS_Store
+Thumbs.db
+desktop.ini
+
+
+# ============================================================
+# DOWNLOADED AND GENERATED MARKET DATA
+# ============================================================
+
+# Yahoo Finance downloads
+data/raw/
+
+# Cleaned security-level Parquet files
+data/processed/
+
+# Wide OHLCV and eligibility matrices
+data/panels/
+
+# Large generated research outputs
+data/research/
+
+
+# ============================================================
+# TEMPORARY METADATA
+# ============================================================
+
+data/metadata/*
+
+# Retain the directory in Git
+!data/metadata/.gitkeep
+
+# Manual, documented cleaning decisions
+!data/metadata/data_overrides.csv
+
+# Small summary tables useful for reproducing project findings
+!data/metadata/quality_summary.csv
+!data/metadata/cointegration_cap_sensitivity.csv
+!data/metadata/baseline_pair_summary.csv
+!data/metadata/spread_event_summary.csv
+!data/metadata/spread_event_by_sector.csv
+
+
+# ============================================================
+# LOGS AND TEMPORARY FILES
+# ============================================================
+
+*.log
+logs/
+temp/
+tmp/
+
+bs.py
+
+
+# ============================================================
+# GENERATED REPORTS
+# ============================================================
+
+# Keep final figures and reports when we create them.
+# Ignore only temporary render files.
+reports/temp/
+reports/cache/

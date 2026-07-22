@@ -1,0 +1,4 @@
+ticker,action,start_date,end_date,field,reason,source
+SW,truncate_before,2024-07-08,,,Current Smurfit Westrock security began NYSE trading on this date,https://www.smurfitwestrock.com/newsroom/press-releases/2024/smurfit-westrock-makes-its-debut-in-new-york-and-london
+AMCR,truncate_before,2019-06-11,,,Amcor began NYSE trading under AMCR on this date,https://www.amcor.com/media/news/amcor-ceo-marks-recent-listing-on-nyse-at-opening-bell-ceremony
+HUBB,repair_ohlc,2021-05-05,2021-05-05,Low,Yahoo adjusted low exceeded adjusted open,anomaly_events.csv

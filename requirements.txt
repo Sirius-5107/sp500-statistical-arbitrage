@@ -1,0 +1,10 @@
+yfinance
+pandas
+numpy
+pyarrow
+requests
+lxml
+html5lib
+beautifulsoup4
+statsmodels
+scipy

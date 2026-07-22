@@ -1,0 +1,16 @@
+metric,value
+files_checked,503
+pass,440
+warning,62
+error,1
+unreadable,0
+missing_columns,0
+reference_start,2000-01-03 00:00:00
+reference_end,2026-07-13 00:00:00
+reference_trading_days,6670
+earliest_security_date,2000-01-03 00:00:00
+latest_security_date,2026-07-13 00:00:00
+securities_with_252_observations,500
+securities_with_structural_errors,1
+securities_with_extreme_returns,34
+securities_with_zero_volume,33

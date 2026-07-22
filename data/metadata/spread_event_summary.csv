@@ -1,0 +1,13 @@
+metric,value
+pair_months_evaluated,297.0
+entry_events,168.0
+entry_frequency,0.5656565656565656
+touched_abs_z_1_rate,0.3333333333333333
+touched_abs_z_0_5_rate,0.23214285714285715
+mean_crossing_rate,0.1488095238095238
+median_entry_abs_z,2.254849035254515
+median_sessions_to_abs_z_1,6.0
+median_sessions_to_abs_z_0_5,8.0
+median_sessions_to_mean_crossing,8.0
+median_favourable_excursion_z,0.8839487227224766
+median_adverse_excursion_z,-0.6655445294895608
