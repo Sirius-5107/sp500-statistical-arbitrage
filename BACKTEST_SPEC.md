@@ -2,7 +2,12 @@
 
 ## Status
 
-**Frozen baseline specification â€” version 1.0**
+**Frozen baseline specification -- version 1.0**
+
+Implementation clarification: the accepted baseline requires a first-touch
+entry inside the stop boundary and does not re-arm a stopped or missed signal
+until the spread returns inside the entry boundary. This documents the
+validated implementation; it does not change a result after evaluation.
 
 This document defines the baseline portfolio backtest before its results are examined. Any later change must be recorded as a separate experiment and must not replace the baseline result.
 
@@ -59,11 +64,14 @@ The intercept, hedge ratio, spread mean, and spread standard deviation are estim
 
 ## Entry Rules
 
-- Enter when the close-based z-score first reaches `|z| >= 2.0`.
+- Enter when the close-based z-score first reaches
+  `2.0 <= |z| < 4.0`.
 - Execute both legs at the next available open.
 - If `z >= 2.0`, short the spread: short A and long beta-adjusted B.
 - If `z <= -2.0`, long the spread: long A and short beta-adjusted B.
 - Do not average down or add to an open pair.
+- Once a first-touch signal occurs, do not permit another entry until
+  the spread returns to `|z| < 2.0`.
 - Skip an entry if either opening price is unavailable or non-positive.
 - Skip an entry if it violates a portfolio constraint.
 
@@ -171,7 +179,7 @@ These are sensitivity analyses, not parameters to optimize:
 | Stop z-score | 3.5, 4.0, 5.0 |
 | Formation window | 126, 252, 504 sessions |
 | Costs | low, baseline, stressed |
-| Subperiods | pre-2008, 2008â€“2012, 2013â€“2019, 2020 onward |
+| Subperiods | pre-2008, 2008-2012, 2013-2019, 2020 onward |
 | Stability | remove best 5 and worst 5 trades |
 | Segments | sector-level results |
 
@@ -194,7 +202,8 @@ The baseline remains entry 2.0, exit 0.5, stop 4.0, formation 252, and baseline 
 - Same-issuer pairs cannot enter the candidate universe.
 - Pair gross weights sum to one within numerical tolerance.
 - A security cannot appear in two simultaneous positions.
-- Portfolio gross exposure cannot exceed 100%.
+- Entry-time portfolio gross exposure cannot exceed 100%; closing
+  exposure may drift with prices between executions.
 - Transaction and borrow costs reduce, never increase, portfolio value.
 - Every position has a deterministic exit or remains explicitly open at the dataset boundary.
 - The equity curve reconciles exactly with positions, trades, and costs.

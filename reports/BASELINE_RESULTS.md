@@ -2,23 +2,23 @@
 
 ## Technical summary
 
-The frozen walk-forward pairs strategy generated **+5.49% in aggregate gross trading P&L**, but this was insufficient to overcome **6.43% in modeled execution costs** and **2.06% in short-borrow costs**. Net portfolio return was therefore **âˆ’3.01%** from March 2001 through July 2026, with a **âˆ’0.07 Sharpe ratio** and **âˆ’6.50% maximum drawdown**.
+The frozen walk-forward pairs strategy generated **+5.49% in aggregate gross trading P&L**, but this was insufficient to overcome **6.43% in modeled execution costs** and **2.06% in short-borrow costs**. Net portfolio return was therefore **-3.01%** from March 2001 through July 2026, with a **-0.07 Sharpe ratio** and **-6.50% maximum drawdown**.
 
-The negative result does not imply that the spreads never mean-reverted. Forty-four trades exited through the mean-reversion rule and contributed **+21.16% net P&L**. The principal failure mode was structural spread breakdown: 43 stop-loss exits contributed **âˆ’18.65%**, while qualification-expiry exits contributed another **âˆ’5.27%**. The baseline therefore identifies a weak but observable mean-reversion effect whose economic value is erased by tail losses and implementation frictions.
+The negative result does not imply that the spreads never mean-reverted. Forty-four trades exited through the mean-reversion rule and contributed **+21.16% net P&L**. The principal failure mode was structural spread breakdown: 43 stop-loss exits contributed **-18.65%**, while qualification-expiry exits contributed another **-5.27%**. The baseline therefore identifies a weak but observable mean-reversion effect whose economic value is erased by tail losses and implementation frictions.
 
 This result is intentionally retained as a negative baseline. No parameter was changed after observing portfolio performance.
 
 | Metric | Baseline result |
 |---|---:|
-| Evaluation period | March 2001â€“July 2026 |
+| Evaluation period | March 2001-July 2026 |
 | Completed trades | 165 |
 | Gross trading P&L | +5.49% |
-| Execution costs | âˆ’6.43% |
-| Short-borrow costs | âˆ’2.06% |
-| Net total return | âˆ’3.01% |
-| Annualized return | âˆ’0.12% |
-| Sharpe ratio | âˆ’0.07 |
-| Maximum drawdown | âˆ’6.50% |
+| Execution costs | -6.43% |
+| Short-borrow costs | -2.06% |
+| Net total return | -3.01% |
+| Annualized return | -0.12% |
+| Sharpe ratio | -0.07 |
+| Maximum drawdown | -6.50% |
 | Win rate | 45.45% |
 | Profit factor | 0.90 |
 | Sessions with invested capital | 15.73% |
@@ -41,22 +41,22 @@ The attribution is an accounting decomposition of completed trades. Gross tradin
 
 ## Spread convergence worked when it occurred, but breakdowns dominated
 
-Mean-reversion exits were highly profitable by construction and contributed +21.16% across 44 trades. This was offset primarily by 43 stop-loss exits, which contributed âˆ’18.65%. Qualification expiry also hurt: 58 positions were closed because their pair no longer qualified at the monthly refresh, contributing âˆ’5.27%.
+Mean-reversion exits were highly profitable by construction and contributed +21.16% across 44 trades. This was offset primarily by 43 stop-loss exits, which contributed -18.65%. Qualification expiry also hurt: 58 positions were closed because their pair no longer qualified at the monthly refresh, contributing -5.27%.
 
 ![Exit-reason diagnostics](figures/04_exit_diagnostics.png)
 
 | Exit reason | Trades | Net P&L | Win rate | Median net return | Median holding period |
 |---|---:|---:|---:|---:|---:|
 | Mean reversion | 44 | +21.16% | 100.00% | +2.17% | 8 sessions |
-| Maximum holding period | 20 | âˆ’0.25% | 35.00% | âˆ’0.29% | 20 sessions |
-| Qualification expiry | 58 | âˆ’5.27% | 39.66% | âˆ’0.16% | 12 sessions |
-| Stop loss | 43 | âˆ’18.65% | 2.33% | âˆ’1.92% | 4 sessions |
+| Maximum holding period | 20 | -0.25% | 35.00% | -0.29% | 20 sessions |
+| Qualification expiry | 58 | -5.27% | 39.66% | -0.16% | 12 sessions |
+| Stop loss | 43 | -18.65% | 2.33% | -1.92% | 4 sessions |
 
 The asymmetry is the baseline's most important diagnostic result. Profitable convergence was common enough to create gross alpha, but failed relationships moved rapidly and produced losses large enough to erase it.
 
 ![Completed-trade return distribution](figures/06_trade_return_distribution.png)
 
-The median completed trade returned âˆ’0.18% after costs. The distribution includes a small number of large positive and negative outcomes, making aggregate performance sensitive to tail events. This motivates tests of breakdown prediction and regime conditioning, but does not justify selecting a filter after viewing these outcomes.
+The median completed trade returned -0.18% after costs. The distribution includes a small number of large positive and negative outcomes, making aggregate performance sensitive to tail events. This motivates tests of breakdown prediction and regime conditioning, but does not justify selecting a filter after viewing these outcomes.
 
 ## Performance was concentrated by sector and year
 
@@ -71,12 +71,12 @@ Real Estate, Information Technology, and Utilities were the strongest contributo
 | Utilities | 27 | +1.44% | 55.56% |
 | Consumer Discretionary | 9 | +0.64% | 44.44% |
 | Energy | 11 | +0.06% | 45.45% |
-| Industrials | 18 | âˆ’0.07% | 50.00% |
-| Communication Services | 6 | âˆ’0.75% | 16.67% |
-| Materials | 14 | âˆ’0.92% | 50.00% |
-| Consumer Staples | 10 | âˆ’1.61% | 30.00% |
-| Health Care | 9 | âˆ’2.58% | 11.11% |
-| Financials | 15 | âˆ’2.69% | 26.67% |
+| Industrials | 18 | -0.07% | 50.00% |
+| Communication Services | 6 | -0.75% | 16.67% |
+| Materials | 14 | -0.92% | 50.00% |
+| Consumer Staples | 10 | -1.61% | 30.00% |
+| Health Care | 9 | -2.58% | 11.11% |
+| Financials | 15 | -2.69% | 26.67% |
 
 These sector rankings are descriptive and have unequal sample sizes. Information Technology, for example, contains only five trades; its apparent strength is therefore not sufficient evidence for a sector allocation rule.
 
@@ -113,8 +113,8 @@ The complete pre-result specification is recorded in [`BACKTEST_SPEC.md`](../BAC
 1. Form same-sector candidates using 252 daily returns, at least 200 overlapping observations, and minimum correlation of 0.50.
 2. Retain at most 10 partners per security and 20 candidates per sector.
 3. Exclude multiple share classes belonging to the same issuer.
-4. Run bidirectional Engleâ€“Granger tests on log prices and use the conservative p-value.
-5. Apply monthly Benjaminiâ€“Hochberg false-discovery-rate control at 10%.
+4. Run bidirectional Engle-Granger tests on log prices and use the conservative p-value.
+5. Apply monthly Benjamini-Hochberg false-discovery-rate control at 10%.
 6. Require a positive hedge ratio from 0.10 to 10.0 and estimated half-life from 2 to 60 sessions.
 7. Generate signals at the close and execute at the next available open.
 8. Enter on the first touch of `2 <= |z| < 4`, exit at `|z| <= 0.5`, stop at `|z| >= 4`, or close after 20 sessions or qualification expiry.
@@ -129,7 +129,7 @@ All critical implementation checks passed:
 
 | Validation check | Result |
 |---|---:|
-| Trade P&L reconciles to final equity | Pass; error below `3 Ã— 10â»Â¹âµ` |
+| Trade P&L reconciles to final equity | Pass; error below `3 x 10^-15` |
 | Entry occurs strictly after signal | Pass |
 | Exit occurs strictly after exit signal | Pass |
 | No entry starts beyond stop boundary | Pass |
@@ -142,7 +142,7 @@ The validation table is saved in [`validation_checks.csv`](tables/validation_che
 
 - **Survivorship bias:** current constituents are used instead of point-in-time membership.
 - **Data source:** Yahoo Finance is suitable for research but is not an institutional point-in-time market-data source.
-- **Simplified execution:** the model uses fixed basis-point costs rather than security-, volatility-, and order-size-dependent bidâ€“ask spreads and market impact.
+- **Simplified execution:** the model uses fixed basis-point costs rather than security-, volatility-, and order-size-dependent bid-ask spreads and market impact.
 - **Borrow assumptions:** short-borrow availability and security-specific borrow fees are not modeled.
 - **Sparse sample:** only 165 completed trades occur over more than 25 years, limiting sector, subperiod, and machine-learning inference.
 - **Selection uncertainty:** qualified pairs occur in a minority of months and cointegration relationships are unstable.
@@ -162,7 +162,7 @@ The baseline should remain unchanged. Follow-up work should be run as separately
 4. **Predeclared parameter grid:** report all entry, exit, stop, and formation-window cells without selecting a winner.
 5. **Breakdown classification:** only after expanding the event sample, test whether pre-entry information predicts convergence versus stop-out using time-aware validation.
 
-The most valuable next research question is not â€œwhich parameter makes the backtest positive?â€ It is:
+The most valuable next research question is not "which parameter makes the backtest positive?" It is:
 
 > Does cointegration provide incremental out-of-sample information beyond sector membership and return correlation, and can relationship breakdown be detected without sacrificing the profitable convergence events?
 
@@ -173,3 +173,4 @@ The most valuable next research question is not â€œwhich parameter makes the
 - How much of Real Estate and Utilities performance is explained by repeated exposure to a small number of pairs?
 - Does the result persist with point-in-time index membership or a broader CRSP-style universe?
 - Are qualification-expiry losses evidence of delayed model failure that should be incorporated into the signal rather than treated only as an administrative exit?
+
