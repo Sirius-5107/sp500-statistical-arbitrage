@@ -112,3 +112,6 @@ bs.py
 # Ignore only temporary render files.
 reports/temp/
 reports/cache/
+
+# Generated portfolio backtest outputs
+data/results/
