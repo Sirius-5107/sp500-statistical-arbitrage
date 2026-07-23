@@ -152,7 +152,7 @@ The validation table is saved in [`validation_checks.csv`](tables/validation_che
 
 These limitations make the baseline suitable as a transparent research experiment, not as evidence of a deployable trading strategy.
 
-## Recommended next steps
+## Next steps
 
 The baseline should remain unchanged. Follow-up work should be run as separately labeled experiments:
 
