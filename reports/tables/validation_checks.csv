@@ -1,0 +1,7 @@
+check,value,status
+Trade P&L reconciles to final equity,-2.6818824938601438e-15,PASS
+No entry occurs on/before signal date,0.0,PASS
+No exit occurs on/before exit signal,0.0,PASS
+No entry starts beyond stop boundary,0.0,PASS
+No security appears in concurrent pairs,0.0,PASS
+Maximum five active pairs,5.0,PASS
